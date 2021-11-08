@@ -17,6 +17,6 @@ describe "Show authors (index )page", type: :feature do
     expect(page).to have_text(author.homepage)
 
     expect(page).to have_link 'Edit', href: edit_author_path(author.id)
-    expect(page).to have_link 'Show', href: show_author_path(author.id)
+    expect(page).to have_link 'Show', href: author_path(author.id)
   end
 end
