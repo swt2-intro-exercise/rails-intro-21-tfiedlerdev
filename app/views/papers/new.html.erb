@@ -1,17 +1,4 @@
 <h1>New Paper</h1>
 
-<%= form_with scope: :paper, url: papers_path, local: true do |form| %>
-<p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
- 
-  <p>
-    <%= form.label :venue %><br>
-    <%= form.text_area :venue %>
-  </p>
-  <p>
-    <%= form.label :year %><br>
-    <%= form.text_area :year %>
-  </p>
+<%= render 'form', paper: @paper %>
 <%= link_to 'Back', papers_path %>
