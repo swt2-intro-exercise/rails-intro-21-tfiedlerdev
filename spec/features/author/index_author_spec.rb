@@ -19,4 +19,17 @@ describe "Show authors (index )page", type: :feature do
     expect(page).to have_link 'Edit', href: edit_author_path(author.id)
     expect(page).to have_link 'Show', href: author_path(author.id)
   end
+  it "should offer an option to delete individual authors" do
+    author = create :author
+    visit authors_path
+    expect(page).to have_link 'Delete', href: author_path(author.id)
+  end
+  it "should remove an author from the database once delete has been pressed" do
+    author = create :author
+    visit authors_path
+    countBefore = Author.count
+    find_link('Delete').click
+    
+    expect(Author.count).to eq (countBefore - 1)
+  end
 end
