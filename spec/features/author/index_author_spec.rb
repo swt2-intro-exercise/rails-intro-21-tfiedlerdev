@@ -10,4 +10,13 @@ describe "Show authors (index )page", type: :feature do
     expect(page).to have_text("Homepage")
     expect(page).to have_link 'New', href: new_author_path
   end
+  it "should contain a table listing all authors with options to edit and show each of them" do
+    author = create :author
+    visit authors_path
+    expect(page).to have_text(author.name)
+    expect(page).to have_text(author.homepage)
+
+    expect(page).to have_link 'Edit', href: edit_author_path(author.id)
+    expect(page).to have_link 'Show', href: show_author_path(author.id)
+  end
 end
