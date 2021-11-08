@@ -20,4 +20,11 @@ describe "New author page", type: :feature do
     find('input[type="submit"]').click
     
     end
+  it "should show an error message when an invalid author is created" do
+    visit new_author_path
+    page.fill_in 'author[first_name]', with: 'Siggi'
+    page.fill_in 'author[homepage]', with: 'www.google.com'
+    find('input[type="submit"]').click
+    expect(page).to have_text('error')
+  end
 end
