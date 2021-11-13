@@ -5,7 +5,7 @@ describe "Edit paper page", type: :feature do
     paper = create :paper
     visit edit_paper_path(paper.id)
     
-    expect(page).to have_select('authors', multiple: true)
+    expect(page).to have_select(multiple: true)
 
   end
 end
