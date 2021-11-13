@@ -8,6 +8,6 @@ describe "Show paper page", type: :feature do
     author = create :author
     paper.authors<< author
     visit paper_path(paper.id)
-    expect(page).to have_text("Alan Touring")
+    expect(page).to have_text("Alan Turing")
   end
 end
