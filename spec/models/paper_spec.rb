@@ -15,6 +15,6 @@ RSpec.describe Paper, type: :model do
   end
   it "should have a list of authors" do
     paper = Paper.new({year: "Hallo", venue: "HPI", title: "Hassos Paper"})
-    expect(paper).to include(:authors)
+    expect(paper.authors).to be_empty
   end
 end
